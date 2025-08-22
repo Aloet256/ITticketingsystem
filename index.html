@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎫 IT Ticket System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Form Panel (Left) -->
+        <div class="form-panel">
+            <div class="ticket-system it">
+                <h1>🎫 I.T TICKET</h1>
+                <div class="form-content">
+                    <form id="it-form" method="post" autocomplete="off">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label><span class="emoji-label">⏱️</span>Timestamp:</label>
+                                <input type="datetime-local" name="Timestamp" id="it-timestamp-field" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><span class="emoji-label">🕒</span>Time:</label>
+                                <input type="text" name="Time" id="it-time-field" required readonly />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><span class="emoji-label">🔢</span>Ticket Number:</label>
+                                <div class="ticket-number-container">
+                                    <input type="text" name="Ticket_Number" id="it-ticket-number" class="ticket-number-input" required />
+                                    <button type="button" class="ticket-number-reset" id="it-reset-ticket" title="Reset to auto-generated number">↻</button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><span class="emoji-label">🏢</span>Branch:</label>
+                                <select class="branch-select" name="Branch" required>
+                                    <option value="BUDADIRI">BUDADIRI</option>
+                                    <option value="BUGIRI">BUGIRI</option>
+                                    <option value="BUGWERE">BUGWERE</option>
+                                    <option value="BUKUNGU">BUKUNGU</option>
+                                    <option value="BUKUYA">BUKUYA</option>
+                                    <option value="BUSIA MAIN">BUSIA MAIN</option>
+                                    <option value="BUSIA PARK">BUSIA PARK</option>
+                                    <option value="BUSIA 3">BUSIA 3</option>
+                                    <option value="BWEYOGERERE">BWEYOGERERE</option>
+                                    <option value="HBT COMPLEX">HBT COMPLEX</option>
+                                    <option value="HOLLYWOOD">HOLLYWOOD</option>
+                                    <option value="IDUDI">IDUDI</option>
+                                    <option value="IGANGA 4">IGANGA 4</option>
+                                    <option value="IGANGA MAIN">IGANGA MAIN</option>
+                                    <option value="IGANGA 3">IGANGA 3</option>
+                                    <option value="IGANGA 2">IGANGA 2</option>
+                                    <option value="KABALE MAIN">KABALE MAIN</option>
+                                    <option value="KABALE 2">KABALE 2</option>
+                                    <option value="KAKOOBA">KAKOOBA</option>
+                                    <option value="KALAGI">KALAGI</option>
+                                    <option value="KALERWE">KALERWE</option>
+                                    <option value="KASENGE">KASENGE</option>
+                                    <option value="KASSANDA">KASSANDA</option>
+                                    <option value="KASUBI">KASUBI</option>
+                                    <option value="KATWE">KATWE</option>
+                                    <option value="KIBIRI">KIBIRI</option>
+                                    <option value="KINAWA CB">KINAWA CB</option>
+                                    <option value="KIREKA">KIREKA</option>
+                                    <option value="KIREKA BIIRA">KIREKA BIIRA</option>
+                                    <option value="KIREKU">KIREKU</option>
+                                    <option value="KIZUNGU MBARARA">KIZUNGU MBARARA</option>
+                                    <option value="KKUNGU">KKUNGU</option>
+                                    <option value="KOLO">KOLO</option>
+                                    <option value="KOSOVO">KOSOVO</option>
+                                    <option value="KULEKANA">KULEKANA</option>
+                                    <option value="MAFUBIRA">MAFUBIRA</option>
+                                    <option value="MBALE KUMI ROAD">MBALE KUMI ROAD</option>
+                                    <option value="MBALE MAIN">MBALE MAIN</option>
+                                    <option value="MBARARA MAIN">MBARARA MAIN</option>
+                                    <option value="MBARARA RUTI">MBARARA RUTI</option>
+                                    <option value="MOONI BRANCH">MOONI BRANCH</option>
+                                    <option value="MUKONO">MUKONO</option>
+                                    <option value="MUTUNGO">MUTUNGO</option>
+                                    <option value="NAKIFUMA">NAKIFUMA</option>
+                                    <option value="NAMATABA">NAMATABA</option>
+                                    <option value="NAMINYA">NAMINYA</option>
+                                    <option value="NAMUYENJE">NAMUYENJE</option>
+                                    <option value="NANTABULILIRWA">NANTABULILIRWA</option>
+                                    <option value="NASUUTI CB">NASUUTI CB</option>
+                                    <option value="NATEETE CB">NATEETE CB</option>
+                                    <option value="OVINO">OVINO</option>
+                                    <option value="RWAHI">RWAHI</option>
+                                    <option value="SEKAZIGA">SEKAZIGA</option>
+                                    <option value="TIRRA">TIRRA</option>
+                                    <option value="USAFI">USAFI</option>
+                                    <option value="WAKULUKUKU">WAKULUKUKU</option>
+                                    <option value="WANTONI">WANTONI</option>
+                                </select>
+                                <div class="branch-controls">
+                                    <button type="button" class="branch-btn" id="it-add-branch">Add Branch</button>
+                                    <button type="button" class="branch-btn" id="it-delete-branch">Delete Branch</button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><span class="emoji-label">👤</span>Branch Employees Name:</label>
+                                <input type="text" name="Employee" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><span class="emoji-label">💼</span>Position:</label>
+                                <select name="Position" required>
+                                    <option value="Manager">Manager</option>
+                                    <option value="Teller">Teller</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><span class="emoji-label">❓</span>Reason for Ticket:</label>
+                                <input type="text" name="Reason" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><span class="emoji-label">📊</span>Quantity:</label>
+                                <input type="number" name="Qty" required />
+                            </div>
+                            
+                            <div class="form-group span-2">
+                                <label><span class="emoji-label">⚠️</span>Problem Narration:</label>
+                                <textarea name="Problem.Narration" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><span class="emoji-label">👨‍💼</span>Person Responsible:</label>
+                                <select name="Person.Responsible" required>
+                                    <option value="Beatrice">Beatrice</option>
+                                    <option value="Judith">Judith</option>
+                                    <option value="Franklin">Franklin</option>
+                                    <option value="Jeff">Jeff</option>
+                                    <option value="Herbert">Herbert</option>
+                                    <option value="Alvin">Alvin</option>
+                                    <option value="Sharon">Sharon</option>
+                                    <option value="Musana">Musana</option>
+                                    <option value="Mulondo">Mulondo</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><span class="emoji-label">📌</span>Ticket Status:</label>
+                                <select name="Tickets.Status" required>
+                                    <option value="Submitted" selected>🟡 Submitted</option>
+                                    <option value="Pending">🔴 Pending</option>
+                                    <option value="Closed">🟢 Closed</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><span class="emoji-label">✍️</span>Created By Who:</label>
+                                <select name="Created.By.Who" required>
+                                    <option value="Sharon">Sharon</option>
+                                    <option value="Beatrice">Beatrice</option>
+                                    <option value="Judith">Judith</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label><span class="emoji-label">📅</span>Closing Dates:</label>
+                                <input type="date" name="Closing.Dates" />
+                            </div>
+                            
+                            <div class="form-group span-2">
+                                <label><span class="emoji-label">📝</span>Details:</label>
+                                <textarea name="Details"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="submit-container">
+                    <button type="submit" class="submit-btn" id="it-submit-btn" form="it-form">Submit 🚀</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Display Panel (Right) -->
+        <div class="display-panel">
+            <h1>📊 Google Sheet Data</h1>
+            <iframe 
+                src="https://script.google.com/macros/s/AKfycbyGFyVImkIBF93pQo-7z9DerSBfyjHAwuJwyb1U12pl_FgHmEyhwo_hiIO5cN12lgekaQ/exec" 
+                scrolling="no">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Mobile menu for smaller screens -->
+    <div class="mobile-menu">
+        <button class="mobile-menu-btn" id="mobile-form-btn">Show Form</button>
+        <button class="mobile-menu-btn" id="mobile-display-btn">Show Data</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

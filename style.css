@@ -1,0 +1,359 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    background: #eaf6fc;
+    color: #2e3b4e;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px;
+    gap: 20px;
+    padding-bottom: 80px; /* Added padding to prevent button being covered */
+}
+
+/* Form Panel Styling */
+.form-panel {
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    order: 2;
+}
+
+.ticket-system {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+}
+
+.ticket-system h1 {
+    font-weight: 600;
+    color: #1f4e79;
+    margin: 0 0 20px;
+    font-size: 24px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.form-content {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.span-2 {
+    grid-column: span 1;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.emoji-label {
+    margin-right: 5px;
+}
+
+input, select, textarea {
+    padding: 12px;
+    border: 1px solid #d1d9e6;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    width: 100%;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.ticket-number-container {
+    display: flex;
+    align-items: center;
+}
+
+.ticket-number-input {
+    flex: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.ticket-number-reset {
+    padding: 12px;
+    background: #f0f5ff;
+    border: 1px solid #d1d9e6;
+    border-left: none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.branch-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.branch-btn {
+    padding: 10px 14px;
+    background: #f0f5ff;
+    border: 1px solid #d1d9e6;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    flex: 1;
+    min-width: 120px;
+}
+
+.submit-container {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    flex-shrink: 0;
+    border-top: 1px solid #eee;
+    position: sticky;
+    bottom: 0;
+    background: white;
+    z-index: 100;
+    padding-bottom: 10px;
+}
+
+.submit-btn {
+    padding: 14px 30px;
+    background: #1f4e79;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.submit-btn:hover {
+    background: #2c6cb0;
+}
+
+/* Display Panel Styling */
+.display-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    order: 1;
+    height: 400px;
+}
+
+.display-panel h1 {
+    font-weight: 600;
+    color: #1f4e79;
+    margin: 0 0 20px;
+    font-size: 24px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.display-panel iframe {
+    width: 100%;
+    flex: 1;
+    border: none;
+    border-radius: 8px;
+    background-color: #f7fbff;
+}
+
+/* Select2 styling */
+.select2-container--default .select2-selection--single {
+    height: 46px;
+    border: 1px solid #d1d9e6;
+    border-radius: 6px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 46px;
+    padding-left: 12px;
+    font-size: 16px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 44px;
+}
+
+.select2-container--default .select2-results__option {
+    padding: 10px 12px;
+    font-size: 16px;
+}
+
+/* Mobile menu for smaller screens */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    padding: 10px;
+}
+
+.mobile-menu-btn {
+    flex: 1;
+    padding: 12px;
+    background: #1f4e79;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Scrollbar styling */
+.form-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.form-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.form-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.form-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        height: 100vh;
+        padding-bottom: 10px;
+    }
+    
+    .form-panel, .display-panel {
+        flex: 1;
+        min-width: 0;
+        height: auto;
+    }
+    
+    .form-panel {
+        order: 1;
+    }
+    
+    .display-panel {
+        order: 2;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .form-group.span-2 {
+        grid-column: span 2;
+    }
+    
+    .mobile-menu {
+        display: none !important;
+    }
+    
+    .submit-container {
+        position: relative;
+        padding-bottom: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .ticket-system {
+        padding: 25px;
+    }
+    
+    .display-panel {
+        padding: 25px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .ticket-system {
+        padding: 15px;
+    }
+    
+    .display-panel {
+        padding: 15px;
+    }
+    
+    .ticket-system h1, .display-panel h1 {
+        font-size: 20px;
+    }
+    
+    input, select, textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .branch-btn {
+        min-width: 100px;
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+    
+    .submit-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Focus styles for accessibility */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #1f4e79;
+    box-shadow: 0 0 0 2px rgba(31, 78, 121, 0.2);
+}
+
+/* Animation for form elements */
+.form-group {
+    transition: transform 0.2s ease;
+}
+
+.form-group:focus-within {
+    transform: translateY(-2px);
+}
